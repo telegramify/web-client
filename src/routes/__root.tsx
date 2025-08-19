@@ -1,5 +1,9 @@
 import { TanstackDevtools } from "@tanstack/react-devtools";
-import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
+import {
+	HeadContent,
+	Scripts,
+	createRootRouteWithContext,
+} from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 import Header from "../components/Header";
@@ -10,17 +14,22 @@ import appCss from "../styles.css?url";
 
 // import type { QueryClient } from "@tanstack/react-query";
 
+import type { TRPCRouter } from "@/integrations/trpc/router";
 // import type { TRPCRouter } from "@/integrations/trpc/router";
 // import type { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
 import { wrapCreateRootRouteWithSentry } from "@sentry/tanstackstart-react";
+import type { QueryClient } from "@tanstack/react-query";
+import type { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
 
-// interface MyRouterContext {
-// 	queryClient: QueryClient;
+interface MyRouterContext {
+	queryClient: QueryClient;
 
-// 	trpc: TRPCOptionsProxy<TRPCRouter>;
-// }
+	trpc: TRPCOptionsProxy<TRPCRouter>;
+}
 
-export const Route = wrapCreateRootRouteWithSentry(createRootRoute)({
+export const Route = wrapCreateRootRouteWithSentry(
+	createRootRouteWithContext<MyRouterContext>(),
+)({
 	head: () => ({
 		meta: [
 			{

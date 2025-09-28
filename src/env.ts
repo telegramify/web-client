@@ -1,9 +1,9 @@
 import { createEnv } from "@t3-oss/env-core";
 import { z } from "zod";
+import "dotenv/config"
 
 export const env = createEnv({
 	server: {
-		SERVER_URL: z.string().url().optional(),
 		SENTRY_AUTH_TOKEN: z.string().optional(),
 	},
 
@@ -15,9 +15,10 @@ export const env = createEnv({
 
 	client: {
 		VITE_APP_TITLE: z.string().min(1).optional(),
-		VITE_SENTRY_ORG: z.string().optional(),
-		VITE_SENTRY_PROJECT: z.string().optional(),
-		VITE_SENTRY_DSN: z.string().optional(),
+		VITE_SENTRY_DSN: z.string(),
+		VITE_API_BASE_URL: z.string(),
+		VITE_API_STAGE_URL: z.string(),
+		VITE_API_PROD_URL: z.string(),
 	},
 
 	/**

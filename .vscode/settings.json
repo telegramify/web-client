@@ -31,5 +31,11 @@
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit"
-  }
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#253202",
+    "titleBar.activeBackground": "#344603",
+    "titleBar.activeForeground": "#F4FEDC"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

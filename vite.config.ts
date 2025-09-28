@@ -5,6 +5,7 @@ import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
 
 import { wrapVinxiConfigWithSentry } from '@sentry/tanstackstart-react'
+import { env } from './src/env'
 
 const config = defineConfig({
   plugins: [
@@ -21,9 +22,9 @@ const config = defineConfig({
 })
 
 export default wrapVinxiConfigWithSentry(config, {
-  org: process.env.VITE_SENTRY_ORG,
-  project: process.env.VITE_SENTRY_PROJECT,
-  authToken: process.env.SENTRY_AUTH_TOKEN,
+  org: "telegramify",
+  project: "web-client",
+  authToken: env.SENTRY_AUTH_TOKEN,
   // Only print logs for uploading source maps in CI
   // Set to `true` to suppress logs
   silent: !process.env.CI,

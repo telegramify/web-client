@@ -6,11 +6,9 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
-import Header from "../components/Header";
-
 import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
 
-import appCss from "../styles.css?url";
+import appCss from "@/shared/styles/index.css?url";
 
 // import type { QueryClient } from "@tanstack/react-query";
 
@@ -61,7 +59,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
-				<Header />
 				{children}
 				<TanstackDevtools
 					config={{
